@@ -7,12 +7,12 @@ A robust, full-stack inventory request and management system. Designed with a **
 The application is built on a three-tier architecture to maximize security and performance:
 
 1. **Database (MySQL):** The central source of truth for parts, users, and transaction logs.
-2. **Backend (FastAPI):** Hosted on the server (`.252`). It handles `BCrypt` password hashing, registration, and role-based validation.
+2. **Backend (FastAPI):** Hosted on the server (`.252`). It handles password hashing, registration, and role-based validation.
 3. **Frontend (CustomTkinter):** A desktop client installed on workstations that communicates with the API to perform inventory operations.
 
 ## Features
 
-* **Secure Registration & Login:** Password protection using industry-standard `bcrypt` via the `passlib` library.
+* **Secure Registration & Login:** Password protection using industry-standards.
 * **Role-Based Access Control (RBAC):**
 * **Admins:** Manage users and view full transaction logs.
 * **Cage Operators:** Update stock levels and approve/deny requests.
@@ -28,14 +28,14 @@ The application is built on a three-tier architecture to maximize security and p
 * **GUI Framework:** CustomTkinter (Modern Python UI)
 * **API Framework:** FastAPI (Asynchronous Python Backend)
 * **Database:** MySQL (Relational Data)
-* **Security:** Passlib (Bcrypt hashing), Pydantic (Data validation)
+* **Security:**
 * **Packaging:** PyInstaller (Executable bundling)
 
 ##  Deployment & Setup
 
 ### 1. Server Configuration
 
-On the server machine (e.g., `192.168.200.252`):
+On the server machine (e.g., `ip address`):
 
 * Configure the `.env` file with `DB_HOST`, `DB_USER`, `DB_PASSWORD`, and `TEAMS_WEBHOOK_URL`.
 * Run the API server:
