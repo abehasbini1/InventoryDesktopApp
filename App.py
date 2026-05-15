@@ -40,5 +40,4 @@ finally:
         print("\nConnection closed.")
 
 # Packaging command:
-# python -m PyInstaller --noconfirm --onedir --windowed --add-data ".env;." --collect-all customtkinter gui_app.py
 # python -m PyInstaller --noconfirm --onedir --windowed --add-data "registration.py;." --add-data ".env;." --collect-all customtkinter gui_app.py
