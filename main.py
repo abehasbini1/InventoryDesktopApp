@@ -7,9 +7,6 @@ import requests
 
 from inventory_dashboard import start_dashboard
 
-# Assuming this file is in the same directory
-
-
 class MainApp(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -20,41 +17,11 @@ class MainApp(ctk.CTk):
 
         self.protocol("WM_DELETE_WINDOW", self.on_closing)
 
-        # COMMENTED OUT: This machine (.123) is a client.
-        # The backend should be running manually on the server machine (.252).
-        # self.start_backend_thread()
-
         self.container = ctk.CTkFrame(self)
         self.container.pack(fill="both", expand=True)
         self.show_login_screen()
 
-    # def start_backend_thread(self):
-    #     """Starts the uvicorn server in a separate thread and tracks the process."""
-    #
-    #     def run_server():
-    #         # Find the path for server.py
-    #         base_path = getattr(
-    #             sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__))
-    #         )
-    #
-    #         # Start the backend silently
-    #         self.backend_process = subprocess.Popen(
-    #             [
-    #                 sys.executable,
-    #                 "-m",
-    #                 "uvicorn",
-    #                 "server:app",
-    #                 "--port",
-    #                 "8000", # Fixed port argument order
-    #                 "--host",
-    #                 "0.0.0.0",
-    #             ],
-    #             cwd=base_path,
-    #             creationflags=0x08000000,  # CREATE_NO_WINDOW
-    #         )
-    #
-    #     threading.Thread(target=run_server, daemon=True).start()
-
+    
     def on_closing(self):
         """Cleanly kills the backend process tree and exits."""
         if hasattr(self, "backend_process") and self.backend_process:
@@ -148,8 +115,8 @@ class MainApp(ctk.CTk):
         payload = {"username": username, "password": password}
 
         try:
-            # Pointing to the .252 server machine
-            response = requests.post("http://192.168.200.252:8000/login", json=payload)
+           
+            response = requests.post("http://127.0.0.1:8000/login", json=payload)
 
             if response.status_code == 200:
                 data = response.json()
@@ -194,7 +161,7 @@ class MainApp(ctk.CTk):
 
         try:
             response = requests.post(
-                "http://192.168.200.252:8000/register", json=payload
+                "http://127.0.0.1:8000:8000/register", json=payload
             )
 
             if response.status_code in [200, 201]:
