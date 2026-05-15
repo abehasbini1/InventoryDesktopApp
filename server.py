@@ -68,7 +68,6 @@ async def login(payload: LoginRequest):
             if not user.get("is_active", True):
                 raise HTTPException(status_code=403, detail="Account is deactivated")
 
-            # FIX: Use 'role_name' because of your SQL alias 'AS role_name'
             return {
                 "id": user["id"],
                 "username": user["username"],
@@ -77,7 +76,7 @@ async def login(payload: LoginRequest):
                 "status": "success",
             }
 
-        # If authentication fails
+        # If authentication fails throw
         raise HTTPException(status_code=401, detail="Invalid username or password")
 
     except Exception as e:
