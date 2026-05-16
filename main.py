@@ -143,7 +143,7 @@ class MainApp(ctk.CTk):
         except requests.exceptions.ConnectionError:
             messagebox.showerror(
                 "Connection Error",
-                "Could not connect to FastAPI server at 192.168.200.252:8000. Is it running?",
+                "Could not connect to FastAPI server. Is it running?",
             )
         except Exception as e:
             messagebox.showerror("Error", f"An unexpected error occurred: {e}")
@@ -174,7 +174,7 @@ class MainApp(ctk.CTk):
         except requests.exceptions.ConnectionError:
             messagebox.showerror(
                 "Connection Error",
-                "FastAPI server is not reachable on 192.168.200.252:8000.",
+                "FastAPI server is not reachable.",
             )
         except Exception as e:
             messagebox.showerror("Error", f"An unexpected error occurred: {e}")
